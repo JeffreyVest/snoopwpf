@@ -166,7 +166,8 @@ namespace Snoop
 				}
 				else if (_delvePathList[_delvePathList.Count - 1].Value != null)
 				{
-					type = _delvePathList[_delvePathList.Count - 1].Value.GetType().ToString();
+					object val = _delvePathList[_delvePathList.Count - 1].Value;
+					type = val.GetType().ToString() + " \"" + val.ToString() + "\"";
 				}
 				else
 				{
@@ -175,7 +176,7 @@ namespace Snoop
 			}
 			else if (_delvePathList.Count == 0)
 			{
-				type = rootTargetType.FullName;
+				type = rootTargetType.FullName + " \"" + this.RootTarget.ToString() + "\"";
 			}
 
 			return type;
@@ -195,7 +196,7 @@ namespace Snoop
 				string delvePath = GetDelvePath(rootTargetType);
 				string type = GetCurrentTypeName(rootTargetType);
 
-				return string.Format("{0}\n({1}) \"{2}\"", delvePath, type, this.RootTarget.ToString());
+				return string.Format("{0}\n({1})", delvePath, type);
 			}
 		}
 
