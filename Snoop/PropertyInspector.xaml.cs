@@ -195,7 +195,7 @@ namespace Snoop
 				string delvePath = GetDelvePath(rootTargetType);
 				string type = GetCurrentTypeName(rootTargetType);
 
-				return string.Format("{0}\n({1})", delvePath, type);
+				return string.Format("{0}\n({1}) \"{2}\"", delvePath, type, this.RootTarget.ToString());
 			}
 		}
 
